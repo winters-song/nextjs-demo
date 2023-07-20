@@ -6,6 +6,21 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+
+
+  --font-yuan:  "Yuanti SC",  "微软雅黑", Arial, serif;
+}
+
+.navbar a{
+  display: inline-block;
+  margin: 0 10px;
+}
+.text-blue{
+  color: #09f;
+}
+
+.select2-dropdown {
+  @apply rounded-b-lg shadow-md;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,11 +32,5 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
 }

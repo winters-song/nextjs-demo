@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+
+
+  --font-yuan:  "Yuanti SC",  "微软雅黑", Arial, serif;
+}
+
+.navbar a{
+  display: inline-block;
+  margin: 0 10px;
+}
+.text-blue{
+  color: #09f;
+}
+
+.select2-dropdown {
+  @apply rounded-b-lg shadow-md;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+
+}

@@ -1,4 +1,7 @@
 {
+  "menu": {
+    "about": "About Us"
+  },
   "products": {
     "cart": "Add to Cart"
   }

@@ -39,7 +39,7 @@
 	}
 
 	.input {
-		@apply block w-full appearance-none rounded-lg px-3 py-2 transition-colors text-base leading-tight md:text-sm bg-black/[.05]  focus:bg-white placeholder:text-gray-500 ;
+		@apply block w-full appearance-none rounded-lg h-10 px-3 py-2 transition-colors text-base leading-tight md:text-sm bg-black/[.05]  focus:bg-white placeholder:text-gray-500 ;
 	}
 
 }
@@ -79,5 +79,15 @@
 	}
 	.title{
 		@apply font-medium leading-5;
+	}
+}
+
+.picker{
+	.picker-menu{
+		@apply hidden;
+	}
+
+	&:hover .picker-menu{
+		@apply block;
 	}
 }

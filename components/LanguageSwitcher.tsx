@@ -18,10 +18,10 @@ const LanguageSwitcher = () => {
   }
 
   return (
-    <div className="flex flex-row gap-2">
+    <div className=" flex flex-col justify-stretch gap-2  w-48 p-4 shadow-md bg-white">
       {
         i18n.locales.map((item , idx) => 
-        <button className="btn" key={idx} onClick={() => handleClick(item)}>
+        <button className="btn text-left hover:text-green-500" key={idx} onClick={() => handleClick(item)}>
           {item}
         </button>
       )

@@ -1,15 +1,12 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { recommendData, topSubjectDataEn } from '@/mock/home'
 import Card from '@/components/common/Card'
 
 
 export default async function Page({ params: { lang } }) {
 
-  return <>
-    {/* <LanguageSwitcher /> */}
-
+  return (
     <main className='main'>
       <div className='tags'>
         {topSubjectDataEn.map((item, idx) => 
@@ -27,7 +24,6 @@ export default async function Page({ params: { lang } }) {
           )
         }
       </div>
-
     </main>
-  </>
+  )
 }

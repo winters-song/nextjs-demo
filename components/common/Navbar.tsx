@@ -2,7 +2,10 @@
 
 import React from "react"
 import Link from "next/link";
+import Image from 'next/image'
 import { usePathname } from 'next/navigation'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
+import { IconBell } from "./Icons";
 
 
 const Navbar = ({t}: {t: any}) => {
@@ -61,8 +64,22 @@ const Navbar = ({t}: {t: any}) => {
             </div>
           </div>
 
+
+          <button className="relative flex items-center justify-center w-10 picker shrink-0 fill-gray-500 hover:fill-gray-700" title={t.notification}>
+            <IconBell className="w-6 h-6" />
+          </button>
+
+          <div className="relative picker shrink-0">
+            Lang
+            <div className="picker-menu absolute">
+              <LanguageSwitcher />
+            </div>
+          </div>
+
           <button className=" shrink-0">Sign in</button>
           <button className=" shrink-0 inline-flex justify-center rounded-lg text-sm font-semibold py-2.5 px-4 bg-green-500 text-white hover:bg-green-600 ">Get Started</button>
+
+          
         </div>
 
 

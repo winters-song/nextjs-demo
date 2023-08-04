@@ -5,7 +5,9 @@
     "live": "Live",
     "job": "Job",
 
-    "search_placeholder" : "Search..."
+    "search_placeholder" : "Search...",
+
+    "notification": "Notification"
   },
   "menu": {
     "about": "About Us"

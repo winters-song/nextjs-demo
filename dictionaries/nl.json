@@ -1,4 +1,12 @@
 {
+  "nav": {
+    "home": "Home", 
+    "subject": "Subject",
+    "live": "Live",
+    "job": "Job",
+
+    "search_placeholder" : "Search..."
+  },
   "menu": {
     "about": "asdfjlasdf"
   },

@@ -1,4 +1,12 @@
 {
+  "nav": {
+    "home": "首页", 
+    "subject": "学科",
+    "live": "直播",
+    "job": "招聘",
+
+    "search_placeholder" : "搜索..."
+  },
   "menu": {
     "about": "关于我们"
   },

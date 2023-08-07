@@ -7,6 +7,21 @@
 
     "search_placeholder" : "搜索..."
   },
+  "home": {
+    "live": "直播",
+    "hot_courses": "热门课程",
+    "hot_subjects": "热门专业"
+  },
+  "page_login": {
+    "page_title": "登录您的账号",
+    "your_email": "您的邮箱",
+    "password": "密码",
+    "remember_me": "记住我",
+    "forgot_password": "忘记密码?", 
+    "login": "登录",
+    "sign_up": "去注册",
+    "no_account": "还没有账号? "
+  },
   "menu": {
     "about": "关于我们"
   },

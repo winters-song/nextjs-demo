@@ -1,4 +1,3 @@
-import 'server-only'
 import { i18n } from './i18n-config'
 
 const dictionaries = {

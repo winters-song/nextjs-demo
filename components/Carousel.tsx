@@ -9,9 +9,15 @@ import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { ISlider } from '@/models/home';
 
 
-const Carousel = () => {
+interface IProps {
+    data: ISlider[]
+}
+
+const Carousel = (props: IProps) => {
+    const {data} = props
 
     return <Swiper
         loop={true}
@@ -28,42 +34,17 @@ const Carousel = () => {
         modules={[Pagination, Navigation, Autoplay]}
         className="mySwiper"
       >
-        <SwiperSlide>
-            <Link href={'/'}>
-                <Image src={'/img/home/NationalGeographic.png'} alt="" width={977} height={550} />
+       { data.map((item, idx) => 
+        <SwiperSlide key={idx}>
+            <Link href={item.url} key={idx} >
+                <Image src={item.img} alt="" width={977} height={550} />
             </Link>
-            <div className="carousel-mask" />
-            <Link href={'/'}>
-                <div className="slide-title">Call for courses 2023!</div>
-            </Link>
-        </SwiperSlide>
-        <SwiperSlide>
-            <Link href={'/'}>
-                <Image src={'/img/home/NationalGeographic.png'} alt="" width={977} height={550} />
-            </Link>
-            <div className="carousel-mask" />
-            <Link href={'/'}>
-                <div className="slide-title">Call for courses 2023!</div>
+            <div className="carousel-mask" style={{ backgroundColor: item.color }} />
+            <Link href={item.url}>
+                <div className="slide-title">{item.title}</div>
             </Link>
         </SwiperSlide>
-        <SwiperSlide>
-            <Link href={'/'}>
-                <Image src={'/img/home/NationalGeographic.png'} alt="" width={977} height={550} />
-            </Link>
-            <div className="carousel-mask" />
-            <Link href={'/'}>
-                <div className="slide-title">Call for courses 2023!</div>
-            </Link>
-        </SwiperSlide>
-        <SwiperSlide>
-            <Link href={'/'}>
-                <Image src={'/img/home/NationalGeographic.png'} alt="" width={977} height={550} />
-            </Link>
-            <div className="carousel-mask" />
-            <Link href={'/'}>
-                <div className="slide-title">Call for courses 2023!</div>
-            </Link>
-        </SwiperSlide>
+       )}
     </Swiper>
 }
 

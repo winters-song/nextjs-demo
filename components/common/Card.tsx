@@ -1,17 +1,18 @@
 import React from "react"
-import { ICard } from "@/model/home";
+import { ICard } from "@/models/home";
 import Link from "next/link";
 import Image from "next/image"
 
 interface IProps {
-  data: ICard
+  data: ICard,
+  className?: string
 }
 const Card = (props: IProps) => {
 
-  const { data } = props
+  const { data, className } = props
 
   return (
-    <div className="sci-card">
+    <div className={`sci-card ${className}`}>
       <Link className="relative" href={data.url} >
         <Image className="cover" src={data.img} alt="" width={672} height={378} />
 
@@ -19,9 +20,9 @@ const Card = (props: IProps) => {
 
           <div className="stats">
           <div className="flex flex-row items-center gap-1"> 
-            <Image className="" alt="" src="/img/icon/play.svg" width={18} height={18} /> 1.7万
+            <Image className="" alt="" src="/img/icon/play.svg" width={18} height={18} /> {data.views}
           </div>
-          <div>02:36</div>
+          <div>{data.duration}</div>
 
           </div>
         </div>
@@ -37,7 +38,7 @@ const Card = (props: IProps) => {
             <div className="font-medium leading-5 line-clamp-2 mb-1" title={data.title}>{data.title}</div>
           </Link>
           <Link className=" shrink-0" href={`/@user-${data.userId}`}>
-            <div className=" text-sm text-gray-500 hover:text-gray-700">{data.userName} · 4个月前</div>
+            <div className=" text-sm text-gray-500 hover:text-gray-700">{data.userName} · {data.publishTime}</div>
           </Link>
         </div>
       </div>

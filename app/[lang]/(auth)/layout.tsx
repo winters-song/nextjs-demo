@@ -4,7 +4,7 @@ export default async function Layout({ children, params }: {
 }) {
 
   return (
-    <main className="flex min-h-screen justify-center items-center bg-gray-100">
+    <main className="flex min-h-[calc(100vh-72px)] justify-center items-center bg-gray-100">
       {children}
     </main>
   )

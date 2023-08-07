@@ -102,6 +102,26 @@ export const topSubjectDataEn = [
     }
 ]
 
+
+export const sliderData = [
+    {
+        title: 'Call for short videos 2023!',
+        img: '/img/home/slider-1.png',
+        url: '/',
+        color: '#12540f'
+    },{
+        title: 'Call for courses 2023!',
+        img: '/img/home/slider-2.png',
+        url: '/',
+        color: '#9f6677'
+    },{
+        title: 'Call for live videos 2023!',
+        img: '/img/home/slider-3.jpg',
+        url: '/',
+        color: '#707e8c'
+    }
+]
+
 export const recommendData = [
     {
         title: 'How does a blockchain work - Simply Explained Hahaha',
@@ -109,41 +129,59 @@ export const recommendData = [
         url: '/',
         userId: '001',
         userName: 'DaQian Zhang',
-        avatar: '/img/avatar/avatar2.png'
+        avatar: '/img/avatar/avatar2.png',
+        views:'1.7k',
+        duration : '02:36',
+        publishTime: '4个月前'
     },{
         title: 'How does a blockchain work - Simply Explained',
         img: '/img/home/ChatGPT.jpg',
         url: '/',
         userId: '001',
         userName: 'DaQian Zhang',
-        avatar: '/img/avatar/avatar2.png'
+        avatar: '/img/avatar/avatar2.png',
+        views:'1.3k',
+        duration : '02:36',
+        publishTime: '2022-10-11'
     },{
         title: 'How does a blockchain work - Simply Explained',
         img: '/img/home/ChatGPT.jpg',
         url: '/',
         userId: '001',
         userName: 'DaQian Zhang',
-        avatar: '/img/avatar/avatar2.png'
+        avatar: '/img/avatar/avatar2.png',
+        views:'1.7k',
+        duration : '02:36',
+        publishTime: '1小时前'
     },{
         title: 'How does a blockchain work - Simply Explained Hahaha',
         img: '/img/home/ChatGPT.jpg',
         url: '/',
         userId: '001',
         userName: 'DaQian Zhang',
-        avatar: '/img/avatar/avatar2.png'
+        avatar: '/img/avatar/avatar2.png',
+        views:'1.2k',
+        duration : '02:36',
+        publishTime: '7-30'
     },{
         title: 'How does a blockchain work - Simply Explained',
         img: '/img/home/ChatGPT.jpg',
         url: '/',
         userId: '001',
         userName: 'DaQian Zhang',
-        avatar: '/img/avatar/avatar2.png'
+        avatar: '/img/avatar/avatar2.png',
+        views:'1.7k',
+        duration : '02:36',
+        publishTime: '7-30'
     },{
         title: 'How does a blockchain work - Simply Explained',
         img: '/img/home/ChatGPT.jpg',
         url: '/',
         userId: '001',
         userName: 'DaQian Zhang',
-        avatar: '/img/avatar/avatar2.png'
+        avatar: '/img/avatar/avatar2.png',
+        views:'21.1k',
+        duration : '02:36',
+        publishTime: '7-31'
     }
 ]

@@ -2,13 +2,14 @@
 
 import React, { useEffect, useRef } from "react"
 import Link from "next/link";
-import Image from 'next/image'
-import { usePathname } from 'next/navigation'
+import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { IconBell, IconEllipsis, IconLogo, IconSeparator } from "./Icons";
 
 const Navbar = ({t}: {t: any}) => {
   const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const router = useRouter()
 
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -33,6 +34,15 @@ const Navbar = ({t}: {t: any}) => {
     }
   }
 
+  const goLogin =() => {
+    if(pathname === '/'){
+      router.push( '/login');
+    }else {
+      const from = encodeURIComponent(`${pathname}?${searchParams.toString()}`)
+      router.push( `/login?from=${from}`);
+    }
+  }
+
   useEffect(() => {
     
     window.addEventListener("keydown", focusSearch);
@@ -45,7 +55,7 @@ const Navbar = ({t}: {t: any}) => {
 
 
   return (
-    <header className="sci-navbar" onClick={() => console.log(t)}>
+    <header className="sci-navbar">
       <nav className="nav">
         <div className="links">
           <a className="logo" href="/">
@@ -87,7 +97,7 @@ const Navbar = ({t}: {t: any}) => {
 
           </div>
 
-          <Link href={"/login"} className="p-1 shrink-0">Login</Link>
+          <button onClick={goLogin} className="shrink-0">Login</button>
           <button className=" shrink-0 inline-flex justify-center rounded-lg text-sm font-semibold py-2.5 px-4 bg-green-500 text-white hover:bg-green-600 ">Get Started</button>
 
           

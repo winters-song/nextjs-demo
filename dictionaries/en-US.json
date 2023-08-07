@@ -9,6 +9,21 @@
 
     "notification": "Notification"
   },
+  "home": {
+    "live": "Live",
+    "hot_courses": "Hot Courses",
+    "hot_subjects": "Hot Subjects"
+  },
+  "page_login": {
+    "page_title": "Login to your account",
+    "your_email": "Your email",
+    "password": "Password",
+    "remember_me": "Remember me",
+    "forgot_password": "Forgot password?", 
+    "login": "Login",
+    "sign_up": "Sign up",
+    "no_account": "Don't have an account yet? "
+  },
   "menu": {
     "about": "About Us"
   },

@@ -5,7 +5,10 @@
     "live": "直播",
     "job": "招聘",
 
-    "search_placeholder" : "搜索..."
+    "search_placeholder" : "搜索...",
+    "notification": "通知", 
+    "login": "登录",
+    "get_started": "开始使用"
   },
   "home": {
     "live": "直播",

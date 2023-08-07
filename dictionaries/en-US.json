@@ -6,8 +6,9 @@
     "job": "Job",
 
     "search_placeholder" : "Search...",
-
-    "notification": "Notification"
+    "notification": "Notification", 
+    "login": "Login",
+    "get_started": "Get Started"
   },
   "home": {
     "live": "Live",

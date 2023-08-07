@@ -5,11 +5,13 @@ import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 import { IconBell, IconEllipsis, IconLogo, IconSeparator } from "./Icons";
+import { useTheme } from "next-themes";
 
 const Navbar = ({t}: {t: any}) => {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const router = useRouter()
+  const { theme, setTheme } = useTheme();
 
   const inputRef = useRef<HTMLInputElement>(null)
 
@@ -85,6 +87,12 @@ const Navbar = ({t}: {t: any}) => {
           <div className="flex flex-row ">
             <button className="relative flex items-center justify-center w-10 picker shrink-0 fill-gray-500 hover:fill-gray-700" title={t.notification}>
               <IconBell className="w-6 h-6" />
+            </button>
+
+            <button className="relative flex items-center justify-center w-10 picker shrink-0 fill-gray-500 hover:fill-gray-700" title={t.notification}
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              {theme === "light" ? "Dark" : "Light"}
             </button>
 
             <div className="relative flex items-center justify-center  picker shrink-0 fill-gray-500 hover:fill-gray-700">

@@ -35,7 +35,7 @@ const Card = (props: IProps) => {
         </Link>
         <div className="flex flex-col">
           <Link href={data.url} >
-            <div className="font-medium leading-5 line-clamp-2 mb-1" title={data.title}>{data.title}</div>
+            <div className="font-medium leading-5 line-clamp-2 mb-1 dark:text-slate-200" title={data.title}>{data.title}</div>
           </Link>
           <Link className=" shrink-0" href={`/@user-${data.userId}`}>
             <div className=" text-sm text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300">{data.userName} · {data.publishTime}</div>

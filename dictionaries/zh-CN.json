@@ -11,7 +11,10 @@
     "get_started": "开始使用",
 
     "appearance": "外观",
-    "language": "语言"
+    "language": "语言",
+    "choose_language": "选择您的语言",
+    "light_theme": "浅色主题",
+    "dark_theme": "深色主题"
   },
   "home": {
     "live": "直播",

@@ -11,7 +11,10 @@
     "get_started": "Get Started",
 
     "appearance": "Appearance",
-    "language": "Language"
+    "language": "Language",
+    "choose_language": "Choose your language",
+    "light_theme": "Light theme",
+    "dark_theme": "Dark theme"
   },
   "home": {
     "live": "Live",

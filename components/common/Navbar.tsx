@@ -129,7 +129,7 @@ const Navbar = ({t}: {t: any}) => {
 
           </div>
 
-          <button onClick={goLogin} className="shrink-0 min-w-[4rem] rounded-md hover:bg-gray-100">{t.login}</button>
+          <button onClick={goLogin} className="shrink-0 min-w-[4rem] rounded-md hover:bg-gray-100 dark:hover:bg-gray-700">{t.login}</button>
           <button className=" shrink-0 inline-flex justify-center rounded-lg text-sm font-semibold py-2.5 px-4 bg-green-500 text-white hover:bg-green-600 ">
             {t.get_started}
           </button>

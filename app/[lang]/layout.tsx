@@ -19,7 +19,7 @@ export default async function Root({ children, params }: {
 
   return (
     <html lang={params.lang}>
-      <body className='bg-slate-50 dark:bg-slate-900' >
+      <body className='bg-slate-50 dark:bg-[#0f0f0f]' >
       <Providers >
         <Navbar 
           t={dict.navigation}

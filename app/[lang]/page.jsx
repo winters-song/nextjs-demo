@@ -14,7 +14,7 @@ export default async function Page({ params: { lang } }) {
   const sliderData = HomeService.getSliderData()
 
   return (
-    <main className='main bg-white'>
+    <main className='main bg-white dark:bg-[#0f0f0f]'>
       <div className='tags'>
         {topSubjects.map((item, idx) => 
           <Link className='tag' key={idx} href={item.url}>{item.name}</Link>

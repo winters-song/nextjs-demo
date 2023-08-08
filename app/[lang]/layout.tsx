@@ -1,13 +1,9 @@
-"use client"
-
 import '../globals.css'
 import './layout.css'
 import Navbar from '../../components/common/Navbar'
-import { Provider as ReduxProvider } from 'react-redux';
-import ThemeProvider from "@/theme/ThemeProvider";
-import { store } from '@/store';
 
 import { getDictionary } from '@/dictionaries'
+import Providers from '@/components/Providers'
 
 
 export async function generateStaticParams() {
@@ -23,15 +19,13 @@ export default async function Root({ children, params }: {
 
   return (
     <html lang={params.lang}>
-      <body className='bg-slate-50 dark:bg-[#0d1117]' >
-      <ReduxProvider store={store}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <Navbar 
-            t={dict.navigation}
-          />
-          {children}
-        </ThemeProvider>
-      </ReduxProvider>
+      <body className='bg-slate-50 dark:bg-slate-900' >
+      <Providers >
+        <Navbar 
+          t={dict.navigation}
+        />
+        {children}
+      </Providers>
     </body>
     </html>
   )

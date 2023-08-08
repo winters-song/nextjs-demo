@@ -1,11 +1,21 @@
 "use client"
 
-import React, { useEffect, useRef } from "react"
+import React, { useState } from "react"
 import Link from "next/link";
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
-import { IconBell, IconEllipsis, IconLogo, IconSeparator } from "./Icons";
+import { 
+  IconHistory, 
+  IconEllipsis, 
+  IconLogo, 
+  IconSeparator, 
+  IconEnvelope,
+  IconStar
+} from "./Icons";
 import { useTheme } from "next-themes";
+import SettingDialog from "./SettingDialog";
+
+
 
 const Navbar = ({t}: {t: any}) => {
   const pathname = usePathname()
@@ -13,7 +23,9 @@ const Navbar = ({t}: {t: any}) => {
   const router = useRouter()
   const { theme, setTheme } = useTheme();
 
-  const inputRef = useRef<HTMLInputElement>(null)
+  const [settingVisible, setSettingVisible] = useState(false)
+
+  // const inputRef = useRef<HTMLInputElement>(null)
 
   const navLinks = [{
     name: t.home,
@@ -30,30 +42,34 @@ const Navbar = ({t}: {t: any}) => {
   }]
 
 
-  const focusSearch = (e: KeyboardEvent) => {
-    if (e.metaKey && e.key === "k") {
-      inputRef.current?.focus()
-    }
-  }
+  // const focusSearch = (e: KeyboardEvent) => {
+  //   if (e.metaKey && e.key === "k") {
+  //     inputRef.current?.focus()
+  //   }
+  // }
 
   const goLogin =() => {
-    if(pathname === '/'){
-      router.push( '/login');
-    }else {
-      const from = encodeURIComponent(`${pathname}?${searchParams.toString()}`)
-      router.push( `/login?from=${from}`);
+
+    if(window){
+      location.href = 'http://localhost:8000/signin?redirect_uri='+ encodeURIComponent(location.href)
     }
+    // if(pathname === '/'){
+    //   router.push( '/login');
+    // }else {
+    //   const from = encodeURIComponent(`${pathname}?${searchParams.toString()}`)
+    //   router.push( `/login?from=${from}`);
+    // }
   }
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    window.addEventListener("keydown", focusSearch);
+  //   window.addEventListener("keydown", focusSearch);
 
-    return () => {
-      window.removeEventListener("keydown", focusSearch);
-    }
+  //   return () => {
+  //     window.removeEventListener("keydown", focusSearch);
+  //   }
   
-  }, [inputRef.current])
+  // }, [inputRef.current])
 
 
   return (
@@ -77,31 +93,39 @@ const Navbar = ({t}: {t: any}) => {
         <div className="flex flex-row gap-4">
           <div className="search">
             <div className="input-box">
-              <input className="input" ref={inputRef} type="search" spellCheck={false} placeholder={t.search_placeholder}/>
+              <input className="input" type="search" spellCheck={false} placeholder={t.search_placeholder}/>
               <kbd className="kbd">
                 <span className="nx-text-xs">⌘</span>K
               </kbd>
             </div>
           </div>
 
-          <div className="flex flex-row ">
-            <button className="relative flex items-center justify-center w-10 picker shrink-0 fill-gray-500 hover:fill-gray-700" title={t.notification}>
-              <IconBell className="w-6 h-6" />
+          <div className="flex flex-row gap-2">
+            <button className="nav-btn" >
+              <IconEnvelope className="w-6 h-6" />
             </button>
 
-            <button className="relative flex items-center justify-center w-10 picker shrink-0 fill-gray-500 hover:fill-gray-700" title={t.notification}
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            >
-              {theme === "light" ? "Dark" : "Light"}
+            <button className="nav-btn" >
+              <IconHistory className="w-6 h-6" />
             </button>
 
-            <div className="relative flex items-center justify-center  picker shrink-0 fill-gray-500 hover:fill-gray-700">
+            <button className="nav-btn" >
+              <IconStar className="w-6 h-6 relative top-[-1px]" />
+            </button> 
+
+            <button className={`nav-btn setting-btn ${settingVisible ? 'active': ''}`} onClick={() => setSettingVisible(!settingVisible)}>
               <IconEllipsis className="w-6 h-6" />
 
-              <div className="picker-menu absolute top-8 left-0">
+              {/* <div className="picker-menu absolute top-8 left-0">
                 <LanguageSwitcher />
-              </div>
-            </div>
+              </div> */}
+            </button>
+
+            {/* <button className="relative flex items-center justify-center w-10 picker shrink-0 fill-gray-500 hover:fill-gray-700" title={t.notification}
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              theme
+            </button> */}
 
           </div>
 
@@ -110,6 +134,8 @@ const Navbar = ({t}: {t: any}) => {
             {t.get_started}
           </button>
         </div>
+
+        <SettingDialog t={t} visible={settingVisible} setVisible={setSettingVisible}/>
       </nav>
     </header>
   )

@@ -8,7 +8,10 @@
     "search_placeholder" : "Search...",
     "notification": "Notification", 
     "login": "Login",
-    "get_started": "Get Started"
+    "get_started": "Get Started",
+
+    "appearance": "Appearance",
+    "language": "Language"
   },
   "home": {
     "live": "Live",

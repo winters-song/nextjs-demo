@@ -1,15 +1,26 @@
-"use client"
-
-import React from "react"
+import React, { useEffect, useState } from "react"
 import { useRouter } from 'next/navigation'
 import { useCookies } from "react-cookie"
-import { i18n, i18nLocaleName, Locale } from "@/i18n-config"
+
+
+const list = [{
+  id: 'en-US',
+  name: 'English (US)'
+},{
+  id: 'nl',
+  name: 'Nederlands'
+},{
+  id: 'zh-CN',
+  name: '中文 (简体)'
+}]
+
 
 const LanguageSwitcher = () => {
   const router = useRouter();
   const [cookie, setCookie] = useCookies(["NEXT_LOCALE"])
+  const [mounted, setMounted] = useState(false);
 
-  const handleClick = async (lang: Locale) => {
+  const handleClick = async (lang: string) => {
     setCookie('NEXT_LOCALE', lang, { 
       maxAge: 3600 * 1000 * 24 * 365 * 10
     })
@@ -17,16 +28,19 @@ const LanguageSwitcher = () => {
     router.refresh()
   }
 
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   return (
-    <div className=" flex flex-col justify-stretch gap-2  w-48 p-4 shadow-md bg-white">
+    mounted && <div className=" flex flex-col justify-stretch gap-2  w-48 p-4 shadow-md bg-white">
       {
-        i18n.locales.map((item: Locale , idx) => 
-        <button className="btn text-left hover:text-green-500" key={idx} onClick={() => handleClick(item)}>
-          {i18nLocaleName[item]}
-        </button>
+        list.map((item , idx) => 
+        <div className="btn text-left hover:text-green-500" key={idx} onClick={() => handleClick(item.id)}>
+          {item.id}
+        </div>
       )
       }
-      
     </div>
   )
 };

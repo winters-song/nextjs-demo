@@ -6,7 +6,7 @@
 
 /* Navigation */
 .sci-navbar {
-	@apply w-full sticky top-0 z-20 bg-[hsla(0,0%,100%,.8)];
+	@apply w-full sticky top-0 z-20 bg-[hsla(0,0%,100%,.8)] dark:bg-slate-900/75;
 	backdrop-filter: saturate(180%) blur(5px);
 	
 	.nav {
@@ -16,9 +16,9 @@
 			@apply flex items-center gap-8;
 		}
 		.link{
-			@apply py-2 text-slate-500 text-sm hover:text-slate-800;
+			@apply py-2 text-slate-500 text-sm hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-100;
 			&.active {
-				@apply text-green-500 font-medium;
+				@apply text-green-500 font-medium dark:text-white;
 			}
 		}
 	}
@@ -34,13 +34,20 @@
 		.kbd {
 			@apply absolute right-2 h-5 flex gap-1 text-gray-900 bg-white font-medium px-1.5 rounded-[4px] border-solid border border-gray-400; 
 			font-size: 12px;
-
 		}
 	}
 
 	.input {
 		@apply block w-full appearance-none rounded-lg h-10 px-3 py-2 transition-colors text-base leading-tight md:text-sm bg-black/[.05]  focus:bg-white placeholder:text-gray-500 ;
 	}
+
+  .nav-btn{
+    @apply relative flex items-center justify-center rounded-full w-10 picker shrink-0 fill-gray-500 hover:fill-gray-700 dark:fill-gray-300 dark:hover:fill-gray-200;
+
+	&.active{
+		@apply bg-slate-200;
+	}
+  }
 
 }
 
@@ -53,7 +60,7 @@
 .tags{
 	@apply flex gap-3 flex-wrap py-6;
 	.tag{
-		@apply inline-block text-sm bg-gray-100 rounded-md py-1 px-3 shrink-0 hover:bg-gray-200;
+		@apply inline-block text-sm bg-gray-100 rounded-md py-1 px-3 shrink-0 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-200;
 		transition: background-color 0.5s cubic-bezier(0.05,0,0,1);
 	}
 }
@@ -164,7 +171,7 @@
 }
 
 .card-block{
-  @apply border-t-4 border-gray-100 mb-6;
+  @apply border-t-4 border-gray-100 mb-6 dark:border-gray-700;
 
   .title{
     @apply my-6 font-bold text-lg flex flex-row gap-2 items-center;
@@ -177,4 +184,25 @@
   .list{
     @apply grid gap-5 mb-6 grid-cols-4 2xl:grid-cols-5;
   }
+}
+
+/* Navbar Menu */
+.sci-menu{
+	@apply fixed w-72 top-16 shadow-lg rounded-md bg-white flex flex-col py-2;
+
+	.menu-item{
+		@apply py-3 px-3 hover:bg-slate-100 cursor-pointer flex flex-row justify-between items-center text-sm;
+	}
+
+	.menu-item-label{
+		@apply flex flex-row gap-2 items-center;
+	}
+
+	.svg{
+		@apply w-5 h-5;
+	}
+
+	.arrow{
+		@apply w-4 h-4 fill-slate-400;
+	}
 }

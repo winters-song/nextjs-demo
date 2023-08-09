@@ -1,0 +1,164 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.video-js.vjs-youtube{
+    video{
+        object-fit: cover;
+    }
+
+    &:hover{
+        .vjs-control-bar{
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    .vjs-big-play-button{
+        @apply border-0 rounded-xl;
+
+        .vjs-icon-placeholder{
+            font-size: 1.2em;
+            line-height: 1.4em;
+        }
+    }
+
+    .vjs-control-bar{
+        @apply h-12 px-4 bg-transparent;
+        opacity: 0;
+        visibility: hidden;
+
+        &:before{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 130px;
+            z-index: 0;
+            background-image: linear-gradient(180deg, #00000000 50% ,#00000080 100% );
+        }
+
+        .vjs-button {
+            color: rgb(238, 238, 238);
+            &:hover{
+                color: rgb(255, 255, 255);
+            }
+        }
+    }
+
+    .vjs-progress-control{
+        position: absolute;
+        bottom: 48px;
+        left: 0;
+        right: 0;
+        height: 16px;
+        flex: none;
+        width: auto;
+
+
+        &:hover{
+            .vjs-play-progress {
+                font-size: 0.9em;
+            }
+        }
+
+        .vjs-slider{
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        .vjs-load-progress div {
+            background: rgba(255, 255, 255, 0.4);
+        }
+        .vjs-play-progress {
+            background-color: #f00;
+            font-size: 0;
+
+            &:before{
+                color: #f00;
+            }
+            .vjs-time-tooltip{
+                display: none;
+            }
+
+            
+        }
+    }
+    .vjs-button > .vjs-icon-placeholder:before{
+        font-size: 2.8em;
+    }
+    .vjs-volume-panel{
+        @apply mr-3 items-center;
+
+        .vjs-volume-bar {
+            position: relative;
+            top: -1px;
+        }
+
+        .vjs-volume-level{
+            width: 60pxs;
+            height: 3px;
+        }
+        .vjs-volume-bar.vjs-slider-horizontal{
+            height: 3px;
+        }
+    }
+    .vjs-slider {
+        background-color: rgba(255, 255, 255, 0.2);
+    }
+    .vjs-time-control{
+        font-size: 13px;
+        line-height: 44px;
+        font-family: initial;
+        @apply text-gray-200 px-1;
+    }
+    .vjs-current-time{
+        display: block;
+    }
+    .vjs-time-divider{
+        @apply block px-1 min-w-0 relative;
+    }
+    .vjs-duration{
+        display: block;
+    }
+    .vjs-remaining-time{
+        display: none;
+    }
+    .vjs-custom-control-spacer{
+        display: block;
+        flex: 1;
+    }
+
+    .vjs-playback-rate-value{
+        line-height: 43px;
+    }
+
+    .vjs-playback-rate .vjs-menu {
+        width: 6em;
+        left: -0.6em;
+        bottom: 12px;
+        .vjs-menu-content{
+            @apply rounded-md;
+
+            li{
+                @apply text-sm py-2;
+            }
+        }
+    }
+    .vjs-menu-button,
+    .vjs-picture-in-picture-control,
+    .vjs-fullscreen-control {
+        width: 5em;
+    }
+    .vjs-fullscreen-control{
+        .vjs-icon-placeholder:before{
+            transform: scale(1.2);
+        }
+    }
+
+    &.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
+        transition: visibility 0.2s, opacity 0.2s;
+        transition-timing-function: cubic-bezier(.4,0,1,1);
+    }
+}

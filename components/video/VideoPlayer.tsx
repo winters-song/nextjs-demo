@@ -6,9 +6,11 @@ import Player from "video.js/dist/types/player";
 // import "videojs-contrib-hls";
 import './video.css'
 import "video.js/dist/video-js.css";
+import { IVtt } from "@/models/common";
 
 interface IProps {
   options: any;
+  vtt: IVtt[];
   onReady?: (p: Player) => void
 }
 
@@ -22,7 +24,7 @@ export const VideoPlayer = ( props: IProps ) => {
   const videoRef = useRef<HTMLVideoElement>(null);
   const playerRef = useRef<Player>();
 
-  const { options, onReady } = props;
+  const { options, vtt, onReady } = props;
 
   useEffect(() => {
     // make sure player is only initialized once
@@ -52,7 +54,17 @@ export const VideoPlayer = ( props: IProps ) => {
     };
   }, []);
 
-  return <video ref={videoRef} className="video-js vjs-youtube"/>;
+  useEffect(() => {
+    if(vtt){
+      console.log('found vtt')
+    }
+  }, [vtt])
+
+  return <video ref={videoRef} className="video-js vjs-youtube">
+    { vtt.map((item, idx) => 
+      <track key={idx} src={item.url} kind={item.kind} label={item.label}/>
+    ) }
+  </video>;
 }
 
 export default VideoPlayer;

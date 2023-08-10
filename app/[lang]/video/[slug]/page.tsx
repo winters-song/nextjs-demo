@@ -4,11 +4,12 @@ import VideoPlayer from '@/components/video/VideoPlayer'
 import { useEffect, useState } from 'react'
 import './index.css'
 import Player from "video.js/dist/types/player";
+import { IVtt } from '@/models/common';
 
 export default function Page({ params }: { params: { slug: string } }) {
 
   const [videoOptions, setVideoOptions] = useState<any>()
-  
+  const [vtt, setVtt] = useState<IVtt[]>([])
 
   const onVideoReady = (player: Player) => {
     window.player = player
@@ -46,6 +47,21 @@ export default function Page({ params }: { params: { slug: string } }) {
 
     }
 
+    setVtt([
+      {
+        url: '/img/temp/demo_subtitles.vtt',
+        kind: 'subtitles',
+        srclang: 'en',
+        label: 'English'
+      },
+      {
+        url: '/img/temp/demo_chapters.vtt',
+        kind: 'chapters',
+        srclang: 'en',
+        label: 'Captions'
+      }
+    ])
+
     setVideoOptions(videoOptions)
   }, [])
 
@@ -54,7 +70,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       <div className="w-[826px] mr-5">
 
         <div className="w-[826px] h-[471px] relative">
-          { videoOptions && <VideoPlayer options={videoOptions} onReady={onVideoReady} />}
+          { videoOptions && <VideoPlayer options={videoOptions} vtt={vtt} onReady={onVideoReady} />}
         </div>
         <h1 className=" text-xl mb-4">深海迷航 爆肝7378块矿石，打造生命之树下最美基地</h1>
       </div>
